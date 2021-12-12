@@ -82,7 +82,7 @@ func NewRelayPubSubCollector(h host.Host, options ...InitOpt) (r *RelayPubSubCol
 					psub, err := pubsub.NewGossipSub(
 						context.Background(),
 						h,
-						pubsub.WithCustomProtocols([]protocol.ID{conf.requestProtocol}),
+						pubsub.WithGossipSubProtocols([]protocol.ID{conf.requestProtocol}, pubsub.GossipSubDefaultFeatures),
 						pubsub.WithEventTracer((*tracer)(r)),
 						pubsub.WithMessageIDFn(opts.MsgIDFn),
 					)

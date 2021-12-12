@@ -9,7 +9,6 @@ import (
 	"sync/atomic"
 
 	"github.com/daotl/go-libp2p-collect/pb"
-	"github.com/daotl/go-libp2p-collect/pubsub"
 	"github.com/libp2p/go-libp2p-core/host"
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/libp2p/go-libp2p-core/protocol"
@@ -36,11 +35,12 @@ func NewIntBFSCollector(h host.Host, opts ...InitOpt) (*IntBFSCollector, error) 
 	}
 	wires := initOpts.Wires
 	if wires == nil {
-		tw, err := pubsub.NewTopicWires(h)
-		if err != nil {
-			return nil, err
-		}
-		wires = tw
+		// tw, err := pubsub.NewTopicWires(h)
+		// if err != nil {
+		// 	return nil, err
+		// }
+		// wires = tw
+		return nil, fmt.Errorf("we can't support the default pubsub topicwires now, please specifiy your topicWires in init options")
 	}
 
 	ic := &IntBFSCollector{

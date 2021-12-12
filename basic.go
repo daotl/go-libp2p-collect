@@ -12,7 +12,6 @@ import (
 	"github.com/libp2p/go-libp2p-core/host"
 	"github.com/libp2p/go-libp2p-core/network"
 	"github.com/libp2p/go-libp2p-core/peer"
-	"github.com/libp2p/go-libp2p-core/protocol"
 )
 
 // BasicPubSubCollector implements of psc.BasicPubSubCollector Interface.
@@ -59,13 +58,14 @@ func NewBasicPubSubCollector(h host.Host, options ...InitOpt) (bpsc *BasicPubSub
 			WithSelfNotif(true),
 			WithCustomPubSubFactory(
 				func(h host.Host) (*pubsub.PubSub, error) {
-					return pubsub.NewRandomSub(
+					return pubsub.NewRandomSubWithProtocols(
 						// TODO: add context in initopts
 						context.TODO(),
 						h,
-						defaultRandomSubSize,
 						// we do the pubsub with conf.RequestProtocol
-						pubsub.WithCustomProtocols([]protocol.ID{c.requestProtocol}),
+						c.requestProtocol,
+						pubsub.FloodSubID,
+						defaultRandomSubSize,
 					)
 				}),
 		)
