@@ -12,7 +12,6 @@ import (
 	"github.com/libp2p/go-libp2p-core/host"
 	"github.com/libp2p/go-libp2p-core/network"
 	"github.com/libp2p/go-libp2p-core/peer"
-	"github.com/libp2p/go-libp2p-core/protocol"
 )
 
 type deduplicator interface {
@@ -82,7 +81,7 @@ func NewRelayPubSubCollector(h host.Host, options ...InitOpt) (r *RelayPubSubCol
 					psub, err := pubsub.NewGossipSub(
 						context.Background(),
 						h,
-						pubsub.WithGossipSubProtocols([]protocol.ID{conf.requestProtocol}, pubsub.GossipSubDefaultFeatures),
+						pubsub.WithGossipSubProtocol(conf.requestProtocol),
 						pubsub.WithEventTracer((*tracer)(r)),
 						pubsub.WithMessageIDFn(opts.MsgIDFn),
 					)

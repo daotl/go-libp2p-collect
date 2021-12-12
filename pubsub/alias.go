@@ -36,8 +36,6 @@ var (
 	NewGossipSub              = pubsub.NewGossipSub
 	WithEventTracer           = pubsub.WithEventTracer
 	WithMessageIDFn           = pubsub.WithMessageIdFn
-	WithGossipSubProtocols    = pubsub.WithGossipSubProtocols
-	GossipSubDefaultFeatures  = pubsub.GossipSubDefaultFeatures
 )
 
 // variable aliases
