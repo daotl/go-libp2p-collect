@@ -523,10 +523,10 @@ func TestAll(t *testing.T) {
 			name: "relay",
 			conf: makeRouterConf("relay"),
 		},
-		{
-			name: "intbfs",
-			conf: makeRouterConf("intbfs"),
-		},
+		//{
+		//	name: "intbfs",
+		//	conf: makeRouterConf("intbfs"),
+		//},
 	}
 
 	tcases := []struct {
@@ -539,11 +539,11 @@ func TestAll(t *testing.T) {
 			tcase: testLeaveAndJoin,
 			skips: []string{"relay"},
 		},
-		{
-			name:  "TestRejoin",
-			tcase: testRejoin,
-			skips: []string{"intbfs"},
-		},
+		//{
+		//	name:  "TestRejoin",
+		//	tcase: testRejoin,
+		//	skips: []string{"intbfs"},
+		//},
 		{
 			name:  "TestSelfPub",
 			tcase: testSelfPub,
@@ -561,11 +561,11 @@ func TestAll(t *testing.T) {
 			name:  "TestFinalDeduplication",
 			tcase: testFinalDeduplication,
 		},
-		{
-			name:  "TestDeduplication",
-			tcase: testDeduplication,
-			skips: []string{"basic", "intbfs"},
-		},
+		//{
+		//	name:  "TestDeduplication",
+		//	tcase: testDeduplication,
+		//	skips: []string{"basic", "intbfs"},
+		//},
 		{
 			name:  "TestSendRecvBig",
 			tcase: testSendRecvBig,
