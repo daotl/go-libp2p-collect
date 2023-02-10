@@ -1,14 +1,13 @@
 package mock
 
 import (
-	"context"
 	"crypto/rand"
 	"fmt"
 	"net"
 
-	"github.com/libp2p/go-libp2p-core/crypto"
-	"github.com/libp2p/go-libp2p-core/host"
-	peer "github.com/libp2p/go-libp2p-core/peer"
+	"github.com/libp2p/go-libp2p/core/crypto"
+	"github.com/libp2p/go-libp2p/core/host"
+	peer "github.com/libp2p/go-libp2p/core/peer"
 	mnet "github.com/libp2p/go-libp2p/p2p/net/mock"
 	ma "github.com/multiformats/go-multiaddr"
 )
@@ -21,7 +20,7 @@ type Net struct {
 // NewMockNet return a mock.Net instance
 func NewMockNet() *Net {
 	return &Net{
-		Mocknet: mnet.New(context.Background()),
+		Mocknet: mnet.New(),
 	}
 }
 

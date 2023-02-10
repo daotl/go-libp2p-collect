@@ -7,7 +7,7 @@ import (
 	fmt "fmt"
 	_ "github.com/gogo/protobuf/gogoproto"
 	proto "github.com/gogo/protobuf/proto"
-	github_com_libp2p_go_libp2p_core_peer "github.com/libp2p/go-libp2p-core/peer"
+	github_com_libp2p_go_libp2p_core_peer "github.com/libp2p/go-libp2p/core/peer"
 	io "io"
 	math "math"
 	math_bits "math/bits"

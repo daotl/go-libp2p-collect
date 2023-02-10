@@ -1,8 +1,8 @@
 package pubsub
 
 import (
-	"github.com/libp2p/go-libp2p-core/protocol"
 	pubsub "github.com/libp2p/go-libp2p-pubsub"
+	"github.com/libp2p/go-libp2p/core/protocol"
 )
 
 // WithGossipSubProtocol changes the default protocol of gossipsub

@@ -6,8 +6,8 @@ import (
 
 	"github.com/daotl/go-libp2p-collect/pb"
 	"github.com/daotl/go-libp2p-collect/pubsub"
-	"github.com/libp2p/go-libp2p-core/host"
-	"github.com/libp2p/go-libp2p-core/peer"
+	"github.com/libp2p/go-libp2p/core/host"
+	"github.com/libp2p/go-libp2p/core/peer"
 )
 
 // PubSubCollector is a group communication module on topic-based overlay network.

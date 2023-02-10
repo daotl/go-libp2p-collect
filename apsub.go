@@ -6,7 +6,7 @@ import (
 	"sync"
 
 	pubsub "github.com/daotl/go-libp2p-collect/pubsub"
-	host "github.com/libp2p/go-libp2p-core/host"
+	host "github.com/libp2p/go-libp2p/core/host"
 )
 
 const (

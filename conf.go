@@ -3,7 +3,7 @@ package collect
 import (
 	"fmt"
 
-	"github.com/libp2p/go-libp2p-core/protocol"
+	"github.com/libp2p/go-libp2p/core/protocol"
 )
 
 type conf struct {
