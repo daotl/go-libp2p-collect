@@ -97,9 +97,9 @@ var xxx_messageInfo_Request proto.InternalMessageInfo
 
 type RequestControl struct {
 	// requester is the peerid of the origin node
-	Requester github_com_libp2p_go_libp2p_core_peer.ID `protobuf:"bytes,1,opt,name=requester,proto3,casttype=github.com/libp2p/go-libp2p-core/peer.ID" json:"requester,omitempty"`
+	Requester github_com_libp2p_go_libp2p_core_peer.ID `protobuf:"bytes,1,opt,name=requester,proto3,casttype=github.com/libp2p/go-libp2p/core/peer.ID" json:"requester,omitempty"`
 	// sender is the node who gives you this request
-	Sender github_com_libp2p_go_libp2p_core_peer.ID `protobuf:"bytes,2,opt,name=sender,proto3,casttype=github.com/libp2p/go-libp2p-core/peer.ID" json:"sender,omitempty"`
+	Sender github_com_libp2p_go_libp2p_core_peer.ID `protobuf:"bytes,2,opt,name=sender,proto3,casttype=github.com/libp2p/go-libp2p/core/peer.ID" json:"sender,omitempty"`
 	// seqno is the sequence number helps to generate request id
 	Seqno uint64 `protobuf:"varint,3,opt,name=seqno,proto3" json:"seqno,omitempty"`
 	Hops  uint32 `protobuf:"varint,4,opt,name=hops,proto3" json:"hops,omitempty"`
@@ -267,11 +267,11 @@ type ResponseControl struct {
 	// response related request id.
 	RequestId RequestID `protobuf:"bytes,1,opt,name=request_id,json=requestId,proto3,casttype=RequestID" json:"request_id,omitempty"`
 	// requester is the node who send the request
-	Requester github_com_libp2p_go_libp2p_core_peer.ID `protobuf:"bytes,2,opt,name=requester,proto3,casttype=github.com/libp2p/go-libp2p-core/peer.ID" json:"requester,omitempty"`
+	Requester github_com_libp2p_go_libp2p_core_peer.ID `protobuf:"bytes,2,opt,name=requester,proto3,casttype=github.com/libp2p/go-libp2p/core/peer.ID" json:"requester,omitempty"`
 	// responser is the node who generate the current response
-	Responser github_com_libp2p_go_libp2p_core_peer.ID `protobuf:"bytes,3,opt,name=responser,proto3,casttype=github.com/libp2p/go-libp2p-core/peer.ID" json:"responser,omitempty"`
+	Responser github_com_libp2p_go_libp2p_core_peer.ID `protobuf:"bytes,3,opt,name=responser,proto3,casttype=github.com/libp2p/go-libp2p/core/peer.ID" json:"responser,omitempty"`
 	// sender is the node who send you this response
-	Sender github_com_libp2p_go_libp2p_core_peer.ID `protobuf:"bytes,4,opt,name=sender,proto3,casttype=github.com/libp2p/go-libp2p-core/peer.ID" json:"sender,omitempty"`
+	Sender github_com_libp2p_go_libp2p_core_peer.ID `protobuf:"bytes,4,opt,name=sender,proto3,casttype=github.com/libp2p/go-libp2p/core/peer.ID" json:"sender,omitempty"`
 	Topic  string                                   `protobuf:"bytes,5,opt,name=topic,proto3" json:"topic,omitempty"`
 }
 
