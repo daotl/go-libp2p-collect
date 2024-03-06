@@ -226,11 +226,11 @@ func (r *RelayPubSubCollector) topicHandle(topic string, msg *Message) {
 	r.logger.funcCall("debug", "topicHandle", map[string]interface{}{
 		"topic":  topic,
 		"myself": r.host.ID().ShortString(),
-		"receive-from": func() string {
+		"receive-from": func() map[string]interface{} {
 			if msg == nil {
-				return ""
+				return nil
 			}
-			return msg.ReceivedFrom.Pretty()
+			return msg.ReceivedFrom.Loggable()
 		}(),
 		"from": func() string {
 			if msg == nil {
@@ -384,11 +384,11 @@ func (r *RelayPubSubCollector) responseStreamHandler(s network.Stream) {
 func (r *RelayPubSubCollector) handleAndForwardResponse(ctx context.Context, recv *Response) (err error) {
 
 	r.logger.funcCall("debug", "handleAndForwardResponse", map[string]interface{}{
-		"receive-from": func() string {
+		"receive-from": func() map[string]interface{} {
 			if recv == nil {
-				return ""
+				return nil
 			}
-			return recv.Control.Sender.Pretty()
+			return recv.Control.Sender.Loggable()
 		}(),
 	})
 
@@ -441,11 +441,11 @@ func (r *RelayPubSubCollector) handleAndForwardResponse(ctx context.Context, rec
 func (r *RelayPubSubCollector) handleFinalResponse(ctx context.Context, recv *Response) (err error) {
 
 	r.logger.funcCall("debug", "handleFinalResponse", map[string]interface{}{
-		"receive-from": func() string {
+		"receive-from": func() map[string]interface{} {
 			if recv == nil {
-				return ""
+				return nil
 			}
-			return recv.Control.Sender.Pretty()
+			return recv.Control.Sender.Loggable()
 		}(),
 	})
 

@@ -206,21 +206,21 @@ func (bpsc *BasicPubSubCollector) topicHandle(topic string, msg *Message) {
 
 	bpsc.logger.funcCall("debug", "topicHandle", map[string]interface{}{
 		"topic": topic,
-		"receive-from": func() string {
+		"receive-from": func() map[string]interface{} {
 			if msg == nil {
-				return ""
+				return nil
 			}
-			return msg.ReceivedFrom.Pretty()
+			return msg.ReceivedFrom.Loggable()
 		}(),
-		"from": func() string {
+		"from": func() map[string]interface{} {
 			if msg == nil {
-				return ""
+				return nil
 			}
 			pid, err := peer.IDFromBytes(msg.From)
 			if err != nil {
-				return ""
+				return nil
 			}
-			return pid.Pretty()
+			return pid.Loggable()
 		}(),
 	})
 
@@ -330,7 +330,7 @@ handleEnd:
 func (bpsc *BasicPubSubCollector) streamHandler(s network.Stream) {
 
 	bpsc.logger.funcCall("debug", "streamHandler", map[string]interface{}{
-		"from": s.Conn().RemotePeer().Pretty(),
+		"from": s.Conn().RemotePeer().Loggable(),
 	})
 	var (
 		respBytes []byte
@@ -367,11 +367,11 @@ func (bpsc *BasicPubSubCollector) handleResponseBytes(respBytes []byte) (err err
 func (bpsc *BasicPubSubCollector) handleFinalResponse(resp *Response) (err error) {
 
 	bpsc.logger.funcCall("debug", "handleFinalResponse", map[string]interface{}{
-		"receive-from": func() string {
+		"receive-from": func() map[string]interface{} {
 			if resp == nil {
-				return ""
+				return nil
 			}
-			return resp.Control.Sender.Pretty()
+			return resp.Control.Sender.Loggable()
 		}(),
 	})
 	if resp == nil {
